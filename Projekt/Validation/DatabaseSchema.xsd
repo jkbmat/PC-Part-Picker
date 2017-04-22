@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="database">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="component" type="component" />
+          <xs:element name="type" type="type" />
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="component">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="manufacturer" minOccurs="1" maxOccurs="1" type="xs:string" />
+        <xs:element name="model" minOccurs="1" maxOccurs="1" type="xs:string" />
+        <xs:element name="description" minOccurs="1" maxOccurs="1" type="xs:string" />
+        <xs:element name="energy-consumption" minOccurs="1" maxOccurs="1" type="xs:integer" />
+        <xs:element name="in-connector" minOccurs="1" maxOccurs="1" type="connector_type" />
+        <xs:element name="out-connector" minOccurs="0" maxOccurs="unbounded" type="connector_type" />
+        <xs:element name="properties" minOccurs="0" maxOccurs="1" type="properties" />
+      </xs:choice>
+    </xs:sequence>
+    
+    <xs:attribute name="type" type="xs:string" use="required" />
+  </xs:complexType>
+
+  <xs:complexType name="connector">
+    <xs:all>
+      <xs:element name="from" type="manu_model" />
+      <xs:element name="to" type="manu_model" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="manu_model">
+    <xs:all minOccurs="1" maxOccurs="1">
+      <xs:element name="manufacturer" type="xs:string" />
+      <xs:element name="model" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="connector_type">
+    <xs:attribute name="type" type="xs:string" use="required" />
+  </xs:complexType>
+
+  <xs:complexType name="properties">
+    <xs:sequence>
+      <xs:element name="property">
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="value" type="xs:string" />
+          </xs:all>
+          <xs:attribute name="type" type="xs:string" use="required" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="type">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="property">
+        <xs:complexType>
+          <xs:attribute name="name" type="xs:string" use="required" />
+          <xs:attribute name="type" type="xs:string" use="required" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+
+    <xs:attribute name="name" type="xs:string" use="required" />
+  </xs:complexType>
+
+</xs:schema>

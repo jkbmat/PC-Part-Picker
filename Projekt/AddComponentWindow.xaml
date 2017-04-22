@@ -1,0 +1,46 @@
+﻿<Window x:Class="Projekt.AddComponentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add a new component..." Height="482" Width="600" MinWidth="400" MinHeight="350" ResizeMode="CanResizeWithGrip" SizeToContent="Height" ScrollViewer.VerticalScrollBarVisibility="Auto">
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Stretch">
+    <Grid x:Name="WindowGrid" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" MinHeight="100"/>
+            <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="140"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="130"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Manufacturer" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top"/>
+        <Label Content="Energy Consumption" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Grid.Row="2"/>
+        <Label HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Grid.Row="1" Content="Model"/>
+        <Label Content="Description" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Grid.Row="5"/>
+        <TextBox x:Name="TextBoxManufacturer" Margin="10" TextWrapping="Wrap" Grid.Column="1" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="TextBoxModel" Margin="10" TextWrapping="Wrap" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="TextBoxEnergy" Margin="10" TextWrapping="Wrap" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="TextBoxDescription" Margin="10" TextWrapping="Wrap" Grid.Column="1" Grid.Row="5" SpellCheck.IsEnabled="True" AcceptsReturn="True" Grid.ColumnSpan="2" />
+        <Label Content="Type" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Grid.Row="6"/>
+        <ComboBox x:Name="ComboBoxTypes" Margin="10" Grid.Column="1" Grid.Row="6" SelectionChanged="ComboBoxTypes_SelectionChanged"/>
+        <Button x:Name="ButtonManageTypes" Content="Manage Types ..." Margin="10" Grid.Column="2" Grid.Row="6" Click="ButtonManageTypes_Click"/>
+        <Button x:Name="ButtonAdd" Content="Add Component" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Bottom" Width="290" Click="ButtonAdd_Click" Grid.ColumnSpan="3" Grid.Row="8" Height="26" VerticalContentAlignment="Center"/>
+        <Label Content="Input Connector" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center" Grid.Row="3"/>
+        <ComboBox x:Name="InConnector" Grid.Column="1" Margin="10" Grid.Row="3" VerticalAlignment="Center" Grid.ColumnSpan="2" IsEditable="True" GotFocus="Connector_GotFocus"/>
+        <Label Content="Output Connectors" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Grid.Row="4"/>
+        <Grid x:Name="GridOutConnectors" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="ButtonAddNewOutConnector" Content="Add New" HorizontalAlignment="Left" Margin="10" Width="75" Click="ButtonAddNewOutConnector_Click"/>
+        </Grid>
+    </Grid>
+    </ScrollViewer>
+</Window>

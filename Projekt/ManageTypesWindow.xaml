@@ -1,0 +1,25 @@
+﻿<Window x:Class="Projekt.ManageTypesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Manage Types" Height="300" Width="629" MinWidth="600" SizeToContent="WidthAndHeight" Initialized="Window_Initialized" Margin="10">
+    <Grid x:Name="WindowGrid" Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" MinWidth="200" />
+            <ColumnDefinition Width="8*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="TypeList" SelectionChanged="TypeList_SelectionChanged"/>
+        <Button x:Name="ButtonRemove" Content="Remove Type" Grid.Row="1" Margin="0,10" IsEnabled="False" Click="ButtonRemove_Click"/>
+        <Button x:Name="ButtonAdd" Content="Add New Type" Grid.Row="2" Click="Button_Click"/>
+        <Grid x:Name="TypeGrid" Grid.Column="1" Margin="10,0,0,10" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+    </Grid>
+</Window>
